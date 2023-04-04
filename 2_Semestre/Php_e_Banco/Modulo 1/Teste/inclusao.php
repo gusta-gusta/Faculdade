@@ -4,8 +4,6 @@
     function incluir($matricula, $nome, $entrada){
         global $dsn, $user, $pass;
         $mensagem = "";
-        // Inicia a variável $pdo com valor null para evitar erros de escopo.
-$pdo = null;
         try {                                  // Diz que CASO tenha um erro tenta trata-lo                 
             $pdo = new PDO($dsn, $user, $pass, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
             $sql = "INSERT INTO ALUNOS VALUES ( , , )";
