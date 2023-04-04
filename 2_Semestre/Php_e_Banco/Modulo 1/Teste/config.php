@@ -1,10 +1,10 @@
 <?php 
 
 $host = "localhost";
-$port = 3030;
-$user = "user";
-$pass = "1234mudar%";
+$port = 1311;
+$user = "postgres";
+$pass = "(Ap@ch3)!1";
 $name = "escola";
-$dsn = "mysql:host=$host;port=$port;dbname=$name"; // String de conexão
+$dsn = "pgsql:host=$host;port=$port;dbname=$name"; // String de conexão
 
 ?>
