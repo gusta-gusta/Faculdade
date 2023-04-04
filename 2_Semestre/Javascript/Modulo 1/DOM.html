@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+    <!--Estilo da box de Exemplo-->
+    <style>
+        #c1
+        {
+            position: absolute; top:100px; left: 100px; width: 100px; height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <!-- Conteúdo da Box com ID-->
+    <div id="c1">
+        (100,100)
+    </div>
+<!-- Conteúdo da caixa de input e botão com Função alterar()  -->
+    X: <input type="text" id="x1">
+    Y: <input type="text" id="y1">
+    <button onclick="alterar()">Mudar</button>"
+<!-- Script em JavaScript para alterar o conteúdo que está em HTML para um novo conteúdo em tempo de produção -->
+    <script>
+        function alterar()
+        {
+            let objc = document.getElementById("c1");
+            let objx = document.getElementById("x1");
+            let objy = document.getElementById("y1");
+            objc.style.left=`${objx.value}px`;
+            objc.style.top=`${objy.value}px`;
+            objc.innerHTML = `(${objx.value},${objy.value})` // innetHTML muda o conteúdo interno do html
+        }
+    </script>
+</body>
+</html>

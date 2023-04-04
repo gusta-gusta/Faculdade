@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisando CEP</title>
+</head>
+<body>
+    <h1>Consultar Endereço</h1>
+    <input id="cep" name="cep" type="text" placeholder="Digite apenas números" />
+    <button onclick="consultarCEP()" >Consultar</button>
+    <h2> Resultado </h2>
+    <p id="resultado">      
+
+    </p>
+    </body>
+    <script type="text/javascript"> 
+
+        function consultarCEP(){
+            
+            var cep = document.getElementById("cep").value;
+
+            var xmlHttpRequest = new XMLHttpRequest();
+
+            var url = "http://cep.la/"+cep;
+
+            xmlHttpRequest.open("GET", url, true);
+            xmlHttpRequest.setRequestHeader("Accept", "application/json");
+            xmlHttpRequest.send();
+
+            xmlHttpRequest.onreadystatechange = function() {
+                if(xmlHttpRequest.readyState == 3) {
+                    console.log('Carregando....');
+                }
+                if(xmlHttpRequest.readyState == 4) {
+                    console.log('CEP: ' + xmlHttpRequest.responseText);
+
+                    var jsonExemplo = JSON.parse(xmlHttpRequest.responseText);
+
+                    document.getElementById("resultado").innerHTML = 'CEP: ' + jsonExemplo.cep + '<br/>' + 'UF: ' + jsonExemplo.uf + '<br/>' + 'Cidade: ' + jsonExemplo.cidade + '<br/>' + 'Bairro: ' + jsonExemplo.bairro + '<br/>' + 'Logradouro: ' + jsonExemplo.logradouro;
+
+                    console.log(jsonExemplo);
+                }
+            }
+        }
+
+    </script>
+</html>

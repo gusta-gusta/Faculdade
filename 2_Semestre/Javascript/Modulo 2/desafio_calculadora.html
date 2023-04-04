@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        var tipoOperacao = prompt("Qual tipo de operação Matematica Gostaria de Realizar ? (Digite + , - , *  ou / ");
+        var num1 = prompt("Inisira o Primeiro numero para calcular :");
+        var num2 = prompt("Insira o Segundo número para calcular:");
+
+        var resultado = 0;  
+       /* 
+       // Resolvendo com If / Else
+                if (tipoOperacao == "+"){
+                    resultado = Soma(num1, num2);
+                    Resultado();
+                }
+                    else if (tipoOperacao == "-"){
+                        resultado = Subtrair(num1, num2);
+                        Resultado();
+                    }
+                       else if (tipoOperacao == "*"){ 
+                            resultado = Multiplicar(num1, num2);
+                            Resultado();
+                        }
+                           else if (tipoOperacao == "/"){
+                                resultado = Dividir(num1, num2);
+                                Resultado();
+                            }
+                                else {
+                                    alert("Nenhuma operação válida selecionada, por favor entre com uma operação válida" + Refresh());
+                                    
+                                }
+                                */
+// Função de F5 na Pág 
+       function Refresh(){
+    window.location.reload();
+}
+// Função de mostrar o Resultado                           
+       function Resultado(){        
+        alert("O resultado da operação é igual a: " + resultado);     
+       }
+                    
+            function Soma(n1, n2){
+                return parseInt(n1) + parseInt(n2);
+            }
+            function Subtrair(n1, n2){
+                return parseInt(n1) - parseInt(n2);
+            }
+            function Multiplicar(n1, n2){
+                return parseInt(n1) * parseInt(n2);
+            }
+            function Dividir(n1, n2){
+                return parseInt(n1) / parseInt(n2);
+            }
+
+
+// Resolvendo com Switch           
+            switch (tipoOperacao) {
+                case "+":
+                resultado = Soma(num1, num2);
+                    Resultado();
+                    break;
+                case "-":
+                resultado = Subtrair(num1, num2);
+                    Resultado();
+                    break;
+                case "*":
+                resultado = Multiplicar(num1, num2);
+                    Resultado();
+                    break;
+                case "/":
+                    resultado = Dividir(num1, num2);
+                    Resultado();
+                    break;
+                                   
+                default:
+                    alert("Nenhuma operação válida selecionada, por favor entre com uma operação válida" + Refresh());
+                    break;
+            }
+
+    </script>
+    <!-- Agora a Calculadora com o comando EVAL (Não é recomendado por segurança)-->
+<!-- 
+    <script type="text/javascript">
+
+        // Resolvendo com Eval
+        var tipoOperacao2 = prompt("Qual tipo de operação Matematica Gostaria de Realizar ? (Digite + , - , *  ou / ");
+        var num3 = prompt("Inisira o Primeiro numero para calcular :");
+        var num4 = prompt("Insira o Segundo número para calcular:");
+
+        var resultadoOperacao = realizaOperacao(num3, num4, tipoOperacao2)
+
+        alert(resultadoOperacao);
+
+        function realizaOperacao(n3, n4, op){
+
+            var resultado = 0;  
+
+            resultado = eval(n3 + op + n4);
+            return resultado;
+        }
+
+        // função EVAL serve para executar um código em formato de string em tempo de execução, sendo que a mesma é inserida no código fonte pelo próprio desenvolvedor do programa.
+    </script>
+-->
+<button type="submit" onClick="Refresh()">Novo Calculo !</button>
+</body>
+</html>
