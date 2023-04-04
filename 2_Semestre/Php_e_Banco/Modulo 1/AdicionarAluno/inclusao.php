@@ -6,7 +6,7 @@
         $mensagem = "";
         try {                                  // Diz que CASO tenha um erro tenta trata-lo                 
             $pdo = new PDO($dsn, $user, $pass, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-            $sql = "INSERT INTO ALUNOS VALUES ( , , )";
+            $sql = "INSERT INTO ALUNOS VALUES (?,?,?)";
             $stm = $pdo->prepare($sql);
             $stm->execute([$matricula, $nome, $entrada]);
             $mensagem = "Aluno incluido com sucesso!";
