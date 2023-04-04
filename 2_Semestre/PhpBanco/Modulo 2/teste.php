@@ -2,7 +2,7 @@
     <ul>
         <?php
 
-            require_once 'aluno.php';
+            require_once 'alunoDAO.php';
 
             $dao = new AlunoDAO();
             $aluno = new Aluno("2022003W", "Gusta Sales", 2022);
