@@ -3,6 +3,8 @@
 //                                                               EXEC 
 
 
+//O método Exec é um método simples, que executa uma instrução SQL e retorna à quantidade de linhas afetadas, exceto quando executada a instrução SELECT. A partir do seu retorno, é necessário utilizar recursos da linguagem PHP, como estruturas de decisão, para verificar se a operação executada obteve sucesso ou não.
+
 /*a variável $dsn, abaixo, corresponde à instação da classe PDO, inicializada na conexão com o BD*/
 $qtdeLinhasAfetadas = $dsn->exec("Delete From Cliente Where codigo_cliente = 1");
 echo "Quantidade de linhas afetadas: " . $qtdeLinhasAfetadas

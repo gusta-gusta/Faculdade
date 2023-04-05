@@ -3,6 +3,8 @@
 //                                                          QUERY            
 
 
+//O método Query executa uma instrução SQL, retornando, quando houver, um conjunto de resultados como objeto PDOStatement. Com isso, para acessar os dados em uma instrução SELECT, por exemplo, é preciso fazer uso de um método da Classe PDOStatement, como o fetch, a partir do objeto que contém o conjunto de resultados.
+
 $instrucaoSQL = "Select nome, cpf, telefone From Cliente";
 //a variável $dsn, abaixo, corresponde à instação da classe PDO, inicializada na conexão com o BD
 $resultSet = $dsn->query($sql);
