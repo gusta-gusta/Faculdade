@@ -2,15 +2,15 @@
 
 require_once "config.php";
 
-class BasicDAO{                     // ... valores seguidos por virgula ,,,                      
-    protected function execDML ($SQL, ...$params){
+class BasicDAO{       // base para os outros DAO                              
+    protected function execDML ($sql, ...$params){ // ... valores seguidos por virgula ,,,   qualquer valor     
         global $dsn, $user, $pass;
         $pdo = new PDO($dsn, $user, $pass, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
         try{
             $stm = $pdo->prepare($sql);
             $stm->execute($params);
         }finally{
-            $pdo - null;
+            $pdo = null;
         }
     }
 
@@ -19,7 +19,7 @@ class BasicDAO{                     // ... valores seguidos por virgula ,,,
         $pdo = new PDO($dsn, $user, $pass, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
         $stm = $pdo->prepare($sql);
         $stm->execute();
-        $objetos = $stm->fetchAll(PDO::FETCH_OBJ);
+        $objetos = $stm->fetchAll(PDO::FETCH_OBJ); // Pega tudo que veio do Banco e transforma em Objetos
         $pdo = null;
         return $objetos;
 

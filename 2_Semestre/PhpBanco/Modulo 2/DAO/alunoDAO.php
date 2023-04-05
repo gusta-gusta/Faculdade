@@ -34,16 +34,15 @@ require_once 'basicDAO.php';
         $this-> entrada = $entrada;
     }
 }
-    class AlunoDAO extends basicDAO {
+    class AlunoDAO extends basicDAO { // Gerenciar o Banco dos Alunos
 
         function obterTodos() {
-            return parent::execQUERY("SELECT * FROM alunos");
+            return parent::execQUERY("SELECT * FROM alunos"); // Retorna os Objetos do tipo Aluno
 
         }
 
-        function inserir(Aluno $aluno){
+        function inserir(Aluno $aluno){ // Só aceita objetos do tipo Aluno
             parent::execDML( "INSERT INTO ALUNOS VALUES (?,?,?)", $aluno->matricula, $aluno->nome, $aluno->entrada);
-        }
+        } //                                                       (      ?      ,         ?      ,         ?      )
     }
-     
 ?>
