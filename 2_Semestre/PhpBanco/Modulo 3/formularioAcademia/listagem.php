@@ -73,6 +73,7 @@ $resultSet = $dsn->query($instrucaoSQL);
 	</tbody>
 	</table>
 	</div>
+    <a href="formulario.html"><input type="submit" value="Adicionar Novo Aluno" class="btn btn-primary"/></a>
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
