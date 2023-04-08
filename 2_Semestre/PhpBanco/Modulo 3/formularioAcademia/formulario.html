@@ -8,6 +8,41 @@
     <!-- Bootstrap -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" />
 </head>
+<script type="text/javascript">
+    function mascara(i){
+   
+   var v = i.value;
+   
+   if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
+      i.value = v.substring(0, v.length-1);
+      return;
+   }
+   
+   i.setAttribute("maxlength", "14");
+   if (v.length == 3 || v.length == 7) i.value += ".";
+   if (v.length == 11) i.value += "-";
+
+}
+
+
+function validardata_nascimento_cliente(data){
+
+dataAtual= new Date();
+
+data=new Date(data);
+
+if (data<dataAtual){
+    console.log("Data Válida");
+    return true;
+} else {
+    console.log("Data Inválida");
+    return false;
+}
+
+
+}
+
+</script>
 <body class="container"><br/>
     <h1>Novo Aluno</h1><br/>
         <form action="listagem.php" method="post">
@@ -19,7 +54,7 @@
             <!-- CPF -->
             <div class="form-group">
                 <label for="cpf_cliente">CPF :</label>          
-                    <input name="cpf_cliente" type="text" id="cpf_cliente" class="form-control" minlength="11" maxlength="11" id="cpf_cliente" name="cpf_cliente" placeholder="Seu CPF" title="Digite apenas números" required> 
+                    <input name="cpf_cliente" type="text" id="cpf_cliente" class="form-control" minlength="11" maxlength="11" id="cpf_cliente" name="cpf_cliente" placeholder="Seu CPF" title="Digite apenas números" oninput="mascara(this)" autocomplete="off" required> 
             </div>
             <!--Email-->
             <div class="form-group">
@@ -30,7 +65,7 @@
             <!-- Data -->
             <div class="form-group">
                     <label for="data_nascimento_cliente">Data de Nascimento:</label> 
-                        <input name="data_nascimento_cliente" type="date" id="data_nascimento_cliente" class="form-control" required><br/> 
+                        <input name="data_nascimento_cliente" type="date" id="data_nascimento_cliente" class="form-control" onchange="validardata_nascimento_cliente(this.value);" required><br/> 
             <!-- Botão Enviar -->
             <div class="form-group text-center">        
                 <input type="submit" value="Adicionar" class="btn btn-primary"/> 
